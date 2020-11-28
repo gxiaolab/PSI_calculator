@@ -49,7 +49,7 @@ Options:
  chr1   ENSEMBL exon      9683200 9683300 .       +       .       gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; exon_number 3;
  chr1   ENSEMBL intron    9683300 9683400 .       +       .       gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; intron_number 3;
  ```
- The scripts uses the entire attribute column (column 9) as as identifier for the feature (exon or intron). 
+ The scripts uses the entire attribute column (column 9) as an identifier for the feature (exon or intron). 
  Customized GTF files must include the first 8 columns + a feature ID column.
  
  P.S. The script will only calculate the PSI of introns if they are annotated in the GTF file. The script can not infer the intron coordinates by itself. 
@@ -91,8 +91,8 @@ The PSI is then calculated as follows:
 
 
 ## Further notes
-- Secondary reads, supplementary reads, and discordant pairs are excluded from the calculation. Single-End reads are exlucded from the proper-pair filter. 
-- Consider changind the overhang value if the reads are short (less than 100 bases)
+- Secondary reads, supplementary reads, and discordant pairs are excluded from the calculation. Single-End reads are excluded from the last filter. 
+- Consider changing the overhang value if the reads are short (less than 100 bases)
 - Most RNA-Seq datasets are *fr-firststrand*, however make sure you check the strandedness of your data or select *fr-unstrand*
 - Please reach out if you run into any issues
 

@@ -24,7 +24,7 @@ Options:
   -h, --help            show this help message and exit
   -b INPUT_BAM, --input_bam=INPUT_BAM
                         input bam file, sorted and indexed
-  -a MA_ANNOTATION, --annotation_macro_exon=MA_ANNOTATION
+  -a MA_ANNOTATION, --annotation_file=MA_ANNOTATION
                         annotation file (gtf format)
   -p OUTPUT_PREFIX, --out_prefix=OUTPUT_PREFIX
                         prefix for intermediate and output files
@@ -40,7 +40,7 @@ Options:
                         Cutoff for defining micro-exons [Default = 20]
  ```
  
- The options for strandedness are fr-firststrand (second pair is sense to the mRNA), fr-secondstrand (first pair is sense to the mRNA), and fr-unstrand (not strand specific).
+ The options for strandedness are fr-firststrand (second pair is sense to the mRNA), fr-secondstrand (first pair is sense to the mRNA), and fr-unstrand (non-strand specific).
  
  ### Annotation file
  The script calculates PSI for the genomic features defined in the GTF file e.g.

@@ -26,8 +26,8 @@ Options:
                         input bam file, sorted and indexed
   -a MA_ANNOTATION, --annotation_file=MA_ANNOTATION
                         annotation file (gtf format)
-  -p OUTPUT_PREFIX, --out_prefix=OUTPUT_PREFIX
-                        prefix for intermediate and output files
+  -p OUTPUT_FILE, --out_file=OUTPUT_FILR
+                        name for output file
   --overhang=OVERHANG   min length of read mapping to flanking exons in a
                         junction [Default = 8]
   --min_intron=MIN_INTRON_LENGTH
@@ -58,10 +58,10 @@ Options:
  The output file is formated as follows 
  
  ```
- Segment_coordinates   Length Inclusion Exclusion  PSI  Part_type  Part_ID
- chr1:9683100:9683200:+   100       2        150    0.01    intron     gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; intron_number 2;
- chr1:9683200:9683300:+   100       100       20    0.72    exon       gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; exon_number 3;
- chr1:9683300:9683400:+   100       1        128    0.01    intron     gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; intron_number 3;
+ Segment_coordinates    Length  Inclusion  Exclusion     PSI   Part_type    Part_ID
+ chr1:9683100:9683200:+    100          2        150    0.01      intron    gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; intron_number 2;
+ chr1:9683200:9683300:+    100        100         20    0.72        exon    gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; exon_number 3;
+ chr1:9683300:9683400:+    100          1        128    0.01      intron    gene_id "ENSG00000238411.1"; transcript_id "ENSG00000238411.1"; intron_number 3;
  ```
  Inclusion and Exclusion refer to the count of inclusion and exclusion reads respectively. If these values are 0 then PSI gets assigned the 'nan' value. 
  

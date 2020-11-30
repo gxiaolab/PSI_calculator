@@ -52,7 +52,21 @@ Options:
  The scripts uses the entire attribute column (column 9) as an identifier for the feature (exon or intron). 
  Customized GTF files must include the first 8 columns + a feature ID column.
  
- P.S. The script will only calculate the PSI of introns if they are annotated in the GTF file. The script can not infer the intron coordinates by itself. 
+ ##### Exonic parts annotation file
+ Exonic parts are non-overlaping exon segments derived from multiple isoforms. This type of annotation can serve as an approach to resolve complex splicing types such as alternative 5' and 3' splice sites. 
+ ![Exonic_parts](./exonic_parts.png)
+ In this repository, you will find a script to convert any regular annotation file into an exonic-parts annotation:
+ ```
+ python prepare_annotation.exonic_parts.py regular_annotation.gtf exonic_parts_annotation.gtf 
+ ```
+ You can also create "intronic parts" which are the corresponding introns for the exonic-parts annotation. 
+ ```
+ python prepare_annotation.intronic_parts.py -i exonic_parts_annotation.gtf 
+ ```
+ *Please Note:* 
+ - The definition of PSI for the first and last exons are defined differently than that for internal exons, but they will still be calculated with the same method. Please keep this mind when conducting dowstream analyses. 
+ - You can use a standard annotation gtf file or a exonic/intronic parts annotation file
+ - The PSI_calculator script can calculate the PSI of both exons and introns (or exonic parts and intronic parts) as long as they are included in the GTF file. The PSI script can not infer the intron coordinates by itself. 
  
  ### Output file
  The output file is formated as follows 
@@ -79,7 +93,7 @@ The script will parse every read in the bam file and check its overlap with the 
 - If the genomic feature is a micro-exon (shorter than 20 bases), then only internal alignment is considered for inclusion reads. 
 - An exclusion read (ER) is a read whose skipped region fully contains the genomic feature. In **Figure 1** the third read's first junction does not count as an exclusion read for Intron 1 as the overlap for one of the flanking exons is not significant. 
 
-![Figure 1](./PSI_example.png)
+![Figure_1](./PSI_example.png)
 
 The PSI is then calculated as follows:
 
@@ -88,6 +102,9 @@ The PSI is then calculated as follows:
 ![NIR](https://latex.codecogs.com/svg.latex?\&space;NIR=\frac{IR}{Read%20Length%20+%20Feature%20Length%20-%202%20*%20overhang}) 
 
 ![PSI](https://latex.codecogs.com/svg.latex?\&space;PSI=\frac{NIR}{NIR%20+%20NER}) 
+
+*Please Note*
+- First and last exons of genes, by definition, do not have any exclusion reads, so they should have a PSI of 1.0
 
 
 ## Further notes

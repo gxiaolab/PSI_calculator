@@ -64,7 +64,7 @@ Options:
  python prepare_annotation.intronic_parts.py -i exonic_parts_annotation.gtf 
  ```
  *Please Note:* 
- - The definition of PSI for the first and last exons are defined differently than that for internal exons, but they will still be calculated with the same method. Please keep this mind when conducting dowstream analyses. 
+ - The definition of PSI for the first and last exons is different than that for internal exons, but they will still be calculated with the same method. Please keep this mind when conducting dowstream analyses. 
  - You can use a standard annotation gtf file or a exonic/intronic parts annotation file
  - The PSI_calculator script can calculate the PSI of both exons and introns (or exonic parts and intronic parts) as long as they are included in the GTF file. The PSI script can not infer the intron coordinates by itself. 
  

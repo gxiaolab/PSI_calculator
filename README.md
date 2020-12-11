@@ -10,7 +10,9 @@ The script uses python's default modules (sys, os, collections, etc). The perfor
 The current script was tested using the following versions of these modules:
 - Pysam 0.8.4
 - HTSeq 0.6.0
-- Pandas 0.23.3
+
+The code was tested using python version 2.7.12
+
 ## Usage
 The script takes as input a sorted and indexed bam file, an annotation file (gtf format), and the name of the output file. 
 
@@ -24,7 +26,7 @@ Options:
   -h, --help            show this help message and exit
   -b INPUT_BAM, --input_bam=INPUT_BAM
                         input bam file, sorted and indexed
-  -a MA_ANNOTATION, --annotation_file=MA_ANNOTATION
+  -a ANNOTATION, --annotation_file=ANNOTATION
                         annotation file (gtf format)
   -p OUTPUT_FILE, --out_file=OUTPUT_FILR
                         name for output file

@@ -84,10 +84,10 @@ def process_CIGAR(cigar, pos, overhang):
             genome_match += length
     all_blocks.append((block_start, genome_match, read_match))
 
-    if all_blocks[0][2] < overhang:
+    if all_blocks and all_blocks[0][2] < overhang:
         all_blocks = all_blocks[1:]
 
-    if all_blocks[-1][2] < overhang:
+    if all_blocks and all_blocks[-1][2] < overhang:
         all_blocks = all_blocks[:-1]
  
     return all_blocks
